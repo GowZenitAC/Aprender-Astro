@@ -1,17 +1,48 @@
+---
+const pageTitle = 'Sobre mi';   
+
+const identity = {
+    firstName: 'Armando ',
+    lastName: 'Alpuche',
+    country: "Mexico",
+    occupation: "Estudiante",
+    hobbies: ['Programar', 'Jugar Videojuegos', 'Dormir', "Escuchar Música"],
+};
+const skills = ['HTML', 'CSS', 'JavaScript', 'Vue', 'Astro', 'Tailwind'];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+---
+
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sobre mi</title>
+    <title>{pageTitle}</title>
   </head>
   <body>
     <a href="/">Inicio</a>
     <a href="/about/">Sobre mi</a>
     <a href="/blog/"></a>
+    <h1>{pageTitle}</h1>
+    <p>Acá algunos datos acerca de mí: </p>
+    <ul>
+        <li>Me llamo: {identity.firstName} {identity.lastName}</li>
+        <li>Soy de: {identity.country} y actualmente soy: {identity.occupation}</li>
+        {identity.hobbies.length >= 2 &&
+            <li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
+          }
+    </ul>
+    <p>Mis habiliadades tecnicas son: </p>
+    <ul>
+        {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
 
-    <h1>Nuevo sitio con Astro</h1>
-    <p>Trabajando con el tutorial de introducción a Astro</p>
-    <p>Seguiré trabajando con esto</p>
+    {happy && <p>Estoy feliz</p>}
+    {finished && <p>¡He terminado el tutorial!</p>}
+    {goal === 3 ? <p>Mi objetivo es acabar en 3 dias</p> : <p>Mi objetivo no son 3 dias</p>}
   </body>
 </html>
