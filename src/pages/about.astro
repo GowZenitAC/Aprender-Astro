@@ -1,20 +1,22 @@
 ---
-const pageTitle = 'Sobre mi';   
+import '../styles/global.css';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+const pageTitle = "Sobre mi";
 
 const identity = {
-    firstName: 'Armando ',
-    lastName: 'Alpuche',
-    country: "Mexico",
-    occupation: "Estudiante",
-    hobbies: ['Programar', 'Jugar Videojuegos', 'Dormir', "Escuchar Música"],
+  firstName: "Armando ",
+  lastName: "Alpuche",
+  country: "Mexico",
+  occupation: "Estudiante",
+  hobbies: ["Programar", "Jugar Videojuegos", "Dormir", "Escuchar Música"],
 };
-const skills = ['HTML', 'CSS', 'JavaScript', 'Vue', 'Astro', 'Tailwind'];
+const skills = ["HTML", "CSS", "JavaScript", "Vue", "Astro", "Tailwind"];
 
 const happy = true;
 const finished = false;
 const goal = 3;
 ---
-
 
 <!doctype html>
 <html lang="en">
@@ -22,27 +24,47 @@ const goal = 3;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
+    <style>
+        h1{
+            color: purple;
+        font-size: 4rem;
+        }
+    </style>
   </head>
   <body>
-    <a href="/">Inicio</a>
-    <a href="/about/">Sobre mi</a>
-    <a href="/blog/"></a>
+    <Navigation />
+
     <h1>{pageTitle}</h1>
-    <p>Acá algunos datos acerca de mí: </p>
+    <p>Acá algunos datos acerca de mí:</p>
     <ul>
-        <li>Me llamo: {identity.firstName} {identity.lastName}</li>
-        <li>Soy de: {identity.country} y actualmente soy: {identity.occupation}</li>
-        {identity.hobbies.length >= 2 &&
-            <li>Dos de mis aficiones son: {identity.hobbies[0]} y {identity.hobbies[1]}</li>
-          }
+      <li>Me llamo: {identity.firstName} {identity.lastName}</li>
+      <li>
+        Soy de: {identity.country} y actualmente soy: {identity.occupation}
+      </li>
+      {
+        identity.hobbies.length >= 2 && (
+          <li>
+            Dos de mis aficiones son: {identity.hobbies[0]} y{" "}
+            {identity.hobbies[1]}
+          </li>
+        )
+      }
     </ul>
-    <p>Mis habiliadades tecnicas son: </p>
+    <p>Mis habiliadades tecnicas son:</p>
     <ul>
-        {skills.map((skill) => <li>{skill}</li>)}
+      {skills.map((skill) => <li>{skill}</li>)}
     </ul>
 
     {happy && <p>Estoy feliz</p>}
     {finished && <p>¡He terminado el tutorial!</p>}
-    {goal === 3 ? <p>Mi objetivo es acabar en 3 dias</p> : <p>Mi objetivo no son 3 dias</p>}
+    {
+      goal === 3 ? (
+        <p>Mi objetivo es acabar en 3 dias</p>
+      ) : (
+        <p>Mi objetivo no son 3 dias</p>
+      )
+    }
+
+    <Footer class="" />
   </body>
 </html>
