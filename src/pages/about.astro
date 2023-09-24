@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const pageTitle = "Sobre mi";
 
@@ -32,7 +33,7 @@ const goal = 3;
     </style>
   </head>
   <body>
-    <Navigation />
+    <Header />
 
     <h1>{pageTitle}</h1>
     <p>Acá algunos datos acerca de mí:</p>
@@ -66,5 +67,8 @@ const goal = 3;
     }
 
     <Footer class="" />
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
